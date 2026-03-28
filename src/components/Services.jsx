@@ -61,7 +61,7 @@ const Services = () => {
       className="py-24 bg-slate-50 overflow-hidden" 
       style={arialFont}
     >
-      <div className="max-w-[1280px] mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         
         {/* Updated Specialist Header */}
         <div className="text-center mb-16">
@@ -85,7 +85,7 @@ const Services = () => {
               key={index}
               ref={(el) => (cardRefs.current[index] = el)}
               onClick={() => handleCardClick(index)}
-              className={`service-card group relative bg-white rounded-[32px] p-8 border border-slate-100 shadow-xl shadow-slate-200/50 transition-all duration-500 lg:hover:-translate-y-2 overflow-hidden flex flex-col h-full cursor-pointer 
+              className={`service-card group relative bg-white rounded-4xl p-8 border border-slate-100 shadow-xl shadow-slate-200/50 transition-all duration-500 lg:hover:-translate-y-2 overflow-hidden flex flex-col h-full cursor-pointer 
                 ${activeCard === index ? 'is-active' : ''}`}
             >
               <div 
@@ -98,14 +98,14 @@ const Services = () => {
               ></div>
               <div className="hover-overlay absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500 z-0" style={{ backgroundColor: brandBlue }}></div>
 
-              <div className="icon-box w-[64px] h-[64px] rounded-full flex items-center justify-center mb-8 shadow-lg z-10 transition-all duration-500 bg-[#0091d1] text-white">
+              <div className="icon-box w-16 h-16 rounded-full flex items-center justify-center mb-8 shadow-lg z-10 transition-all duration-500 bg-[#0091d1] text-white">
                 {service.icon}
               </div>
 
               <h3 className="title-text text-[22px] font-black mb-4 tracking-tight uppercase italic z-10 transition-colors duration-500 text-slate-900">
                 {service.title}
               </h3>
-              <p className="desc-text text-slate-500 text-[15px] leading-relaxed mb-8 flex-grow font-medium z-10 transition-colors duration-500">
+              <p className="desc-text text-slate-500 text-[15px] leading-relaxed mb-8 grow font-medium z-10 transition-colors duration-500">
                 {service.desc}
               </p>
 

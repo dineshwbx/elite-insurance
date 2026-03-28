@@ -9,8 +9,6 @@ const About = () => {
   });
 
   const brandBlue = "#0091d1";
-
-  // Fixed animation helper
   const fadeIn = "transition-all duration-1000 ease-out";
   const visible = "opacity-100 translate-y-0";
   const hidden = "opacity-0 translate-y-10";
@@ -28,7 +26,7 @@ const About = () => {
               <div style={{ backgroundColor: `${brandBlue}20` }} className="absolute -top-5 -left-5 w-20 h-20 rounded-full blur-3xl"></div>
               <div 
                 style={{ boxShadow: `0 25px 50px -12px ${brandBlue}30` }}
-                className="relative z-10 border-[6px] md:border-[10px] border-white rounded-full overflow-hidden w-56 h-56 sm:w-72 sm:h-72 lg:w-[420px] lg:h-[420px]"
+                className="relative z-10 border-[6px] md:border-10 border-white rounded-full overflow-hidden w-56 h-56 sm:w-72 sm:h-72 lg:w-105 lg:h-105"
               >
                 <img src={aboutImg} alt="Elite Insurance" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>

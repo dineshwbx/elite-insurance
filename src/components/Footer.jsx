@@ -8,11 +8,11 @@ const Footer = () => {
   return (
     <footer className="relative mt-32" style={arialFont}    >
       {/* Layered Wave Curve */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] transform -translate-y-[99%]">
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-0 transform -translate-y-[99%]">
         <svg 
           viewBox="0 0 1200 120" 
           preserveAspectRatio="none" 
-          className="relative block w-full h-[60px] md:h-[120px]"
+          className="relative block w-full h-15 md:h-30"
         >
           <path 
             d="M0,64L48,64C96,64,192,64,288,58.7C384,53,480,43,576,48C672,53,768,75,864,80C960,85,1056,75,1152,64L1200,53V120H0Z" 
@@ -28,7 +28,7 @@ const Footer = () => {
 
       {/* Main Footer Body */}
       <div style={{ backgroundColor: brandBlue }} className="text-white pt-16 pb-8">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-300 mx-auto px-6">
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             
@@ -61,7 +61,7 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-black uppercase italic mb-8 tracking-widest text-slate-900">Our Services</h4>
               <ul className="space-y-4 text-white font-medium">
-                {['Health Insurance', 'Life Insurance', 'Business Insurance', 'Car Insurance'].map((service) => (
+                {['Health Insurance', 'Life Insurance', 'Motor Insurance', 'Financial Advicing'].map((service) => (
                   <li key={service} className="hover:text-slate-900 cursor-pointer transition-all duration-300 hover:translate-x-2 flex items-center gap-2 w-fit">
                     <span className="w-1.5 h-1.5 rounded-full bg-white/40"></span> {service}
                   </li>
@@ -74,15 +74,15 @@ const Footer = () => {
               <h4 className="text-lg font-black uppercase italic mb-8 tracking-widest text-slate-900">Get In Touch</h4>
               <ul className="space-y-6 text-white font-medium">
                 <li className="flex items-center gap-3 group">
-                  <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-all flex-shrink-0"><Phone size={18} /></div>
+                  <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-all shrink-0"><Phone size={18} /></div>
                   <span className="group-hover:text-slate-900 transition-colors">+91 8680908590</span>
                 </li>
                 <li className="flex items-center gap-3 group">
-                  <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-all flex-shrink-0"><Mail size={18} /></div>
+                  <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-all shrink-0"><Mail size={18} /></div>
                   <span className="group-hover:text-slate-900 transition-colors break-all">eliteinsurance@gmail.com</span>
                 </li>
                 <li className="flex items-start gap-3 group">
-                  <div className="p-2 bg-white/10 rounded-lg mt-1 group-hover:bg-white/20 transition-all flex-shrink-0"><MapPin size={18} /></div>
+                  <div className="p-2 bg-white/10 rounded-lg mt-1 group-hover:bg-white/20 transition-all shrink-0"><MapPin size={18} /></div>
                   <span className="group-hover:text-slate-900 transition-colors">Erode, Tamilnadu</span>
                 </li>
               </ul>

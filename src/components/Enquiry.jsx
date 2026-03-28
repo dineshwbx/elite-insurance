@@ -26,12 +26,11 @@ const Enquiry = () => {
     alert("Thank you! We will get back to you soon.");
   };
 
-  // Common Class for Input Boxes - added better border and shadows
   const inputStyle = "w-full pl-12 pr-4 py-4 bg-white border-2 border-slate-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-[#0091d1]/10 focus:border-[#0091d1] transition-all font-medium text-slate-900 placeholder:text-slate-400 shadow-sm";
 
   return (
     <section className="pt-44 pb-20 bg-slate-50" style={arialFont}>
-      <div className="max-w-[1100px] mx-auto px-6">
+      <div className="max-w-275 mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           
           {/* LEFT SIDE */}
@@ -49,7 +48,7 @@ const Enquiry = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="w-full lg:w-1/2 bg-white p-8 md:p-10 rounded-[32px] shadow-2xl shadow-slate-300/40 border border-slate-200"
+            className="w-full lg:w-1/2 bg-white p-8 md:p-10 rounded-4xl shadow-2xl shadow-slate-300/40 border border-slate-200"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               

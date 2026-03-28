@@ -30,12 +30,11 @@ const OtherServices = () => {
 
   return (
     <section 
-      // Idhu dhaan Navbar link oda match aaganum
       id="otherservice-section" 
       className="py-12 md:py-24 bg-slate-50 overflow-hidden" 
       style={arialFont}
     >
-      <div className="max-w-[1100px] mx-auto px-6">
+      <div className="max-w-275 mx-auto px-6">
         
         {/* HEADER */}
         <motion.div 
@@ -88,7 +87,7 @@ const OtherServices = () => {
                 </div>
               </div>
 
-              <div className="flex-grow">
+              <div className="grow">
                 <h3 className="text-[19px] md:text-[32px] font-black tracking-tight uppercase italic text-slate-900 group-hover:text-[#0091d1] transition-colors duration-300">
                   {service.title}
                 </h3>

@@ -2,7 +2,7 @@ import { Layers, RefreshCcw, LifeBuoy, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
 const FeatureCard = () => {
-  const brandBlue = "#0091d1"; // Your Brand Ink Color
+  const brandBlue = "#0091d1"; 
   const arialFont = { fontFamily: "Arial, Helvetica, sans-serif" };
 
   const [openIndex, setOpenIndex] = useState(null);
@@ -34,7 +34,7 @@ const FeatureCard = () => {
 
   return (
     <section className="py-24 bg-slate-50 overflow-hidden" style={arialFont}>
-      <div className="max-w-[1280px] mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         
         {/* CENTERED HEADER */}
         <div className="text-center mb-20">
@@ -76,12 +76,12 @@ const FeatureCard = () => {
                 <div 
                   className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-40 opacity-100 mb-6' : 'max-h-0 opacity-0'}`}
                 >
-                  <p className="text-slate-500 text-[17px] leading-relaxed font-medium max-w-[280px]">
+                  <p className="text-slate-500 text-[17px] leading-relaxed font-medium max-w-70">
                     {item.desc}
                   </p>
                 </div>
 
-                {/* BLUE INK BUTTON - High Visibility */}
+                {/* BLUE INK BUTTON */}
                 <button 
                   onClick={() => toggleDescription(idx)}
                   className={`mt-4 px-8 py-3 rounded-full font-black uppercase text-[13px] tracking-widest flex items-center gap-2 transition-all duration-300 border-2 

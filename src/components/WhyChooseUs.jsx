@@ -14,7 +14,7 @@ const WhyChooseUs = () => {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 } // Very low threshold to trigger immediately and smoothly
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -23,7 +23,7 @@ const WhyChooseUs = () => {
 
   return (
     <div className="w-full bg-slate-50" ref={sectionRef}>
-      <section className="py-20 px-6 max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center overflow-hidden">
+      <section className="py-20 px-6 max-w-300 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center overflow-hidden">
         
         {/* Left Side: Text Content */}
         <div 
@@ -96,11 +96,11 @@ const WhyChooseUs = () => {
             }}
           ></div>
           
-          <div className="relative z-10 rounded-[40px] border-[12px] border-white overflow-hidden shadow-2xl bg-white">
+          <div className="relative z-10 rounded-[40px] border-12 border-white overflow-hidden shadow-2xl bg-white">
             <img 
               src={meetingImg} 
               alt="Insurance Meeting" 
-              className="w-full h-full object-cover aspect-[4/3] hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-cover aspect-4/3 hover:scale-105 transition-transform duration-700"
             />
           </div>
         </div>

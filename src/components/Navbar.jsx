@@ -25,7 +25,6 @@ const Navbar = () => {
     setIsDropdownOpen(false);
     
     if (location.pathname !== '/') {
-      // Home page-la illaina, first home-ku poitu appram scroll pannum
       navigate('/');
       setTimeout(() => {
         const element = document.getElementById(sectionId);
@@ -34,7 +33,6 @@ const Navbar = () => {
         }
       }, 100);
     } else {
-      // Home page-laye irundha direct scroll
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -42,7 +40,6 @@ const Navbar = () => {
     }
   };
 
-  // Services-m ippo single page scroll dhaan (Except Enquiry)
 const services = [
   { name: 'Insurance', section: 'insurance-section' },
   { name: 'Financial Support', section: 'otherservice-section' },
@@ -51,10 +48,10 @@ const services = [
 ];
 
   return (
-    <header className="fixed top-0 w-full z-[100] px-4 py-4 md:px-6 transition-all duration-700">
+    <header className="fixed top-0 w-full z-100 px-4 py-4 md:px-6 transition-all duration-700">
       <nav 
         className={`max-w-7xl mx-auto transition-all duration-700 border-none shadow-xl bg-white outline-none ${
-          isScrolled ? 'py-3 px-6 scale-[0.98] rounded-[32px]' : 'py-5 px-8 rounded-[24px]'
+          isScrolled ? 'py-3 px-6 scale-[0.98] rounded-4xl' : 'py-5 px-8 rounded-3xl'
         }`}
       >
         <div className="flex justify-between items-center">
@@ -66,7 +63,7 @@ const services = [
             className="flex items-center gap-4 no-underline outline-none focus:ring-0"
           >
             <ShieldCheck style={{ color: brandBlue }} className="w-8 h-8" />
-            <span className="text-xl font-black tracking-[0.1em] text-slate-900 uppercase">
+            <span className="text-xl font-black tracking-widest text-slate-900 uppercase">
               ELITE <span className="ml-2" style={{ color: brandBlue }}>INSURANCE</span>
             </span>
           </Link>
@@ -118,7 +115,7 @@ const services = [
         </div>
 
         {/* MOBILE MENU */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-500 bg-white ${isMenuOpen ? 'max-h-[600px] mt-6 pb-6' : 'max-h-0'}`}>
+        <div className={`lg:hidden overflow-hidden transition-all duration-500 bg-white ${isMenuOpen ? 'max-h-150 mt-6 pb-6' : 'max-h-0'}`}>
           <div className="flex flex-col gap-6 pt-6 border-t border-slate-100">
             <p className="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase">Our Services</p>
             <div className="grid grid-cols-1 gap-4">
@@ -132,7 +129,7 @@ const services = [
                 </button>
               ))}
             </div>
-            <div className="h-[1px] bg-slate-100 w-full my-2"></div>
+            <div className="h-px bg-slate-100 w-full my-2"></div>
             <button onClick={() => handleScrollTo('about')} className="text-xl font-black uppercase text-left border-none outline-none focus:ring-0">About Us</button>
             <button onClick={() => handleScrollTo('contact')} className="text-xl font-black uppercase text-left border-none outline-none focus:ring-0">Contact</button>
             <Link 

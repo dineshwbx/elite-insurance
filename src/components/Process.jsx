@@ -34,13 +34,13 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-white" style={arialFont}>
-      <div className="max-w-[850px] mx-auto px-6">
+    <section className="py-20 md:py-28 bg-slate-50" style={arialFont}>
+      <div className="max-w-212.5 mx-auto px-6">
         
         {/* Header Section */}
         <div className="mb-20">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-[2px]" style={{ backgroundColor: brandBlue }}></div>
+            <div className="w-10 h-0.5" style={{ backgroundColor: brandBlue }}></div>
             <span className="uppercase tracking-[0.3em] font-bold text-[11px] md:text-[13px]" style={{ color: brandBlue }}>
               How it works
             </span>
@@ -57,7 +57,7 @@ const Process = () => {
         <div className="relative">
           {/* Main Vertical Connector Line */}
           <div 
-            className="absolute left-[23px] top-6 bottom-6 w-[2px] opacity-15" 
+            className="absolute left-5.75 top-6 bottom-6 w-0.5 opacity-15" 
             style={{ backgroundColor: brandBlue }}
           ></div>
 
@@ -82,13 +82,13 @@ const Process = () => {
                   
                   {/* Animated Active Line Segment (Hover Effect) */}
                   <div 
-                    className="absolute left-[23px] top-12 w-[2px] h-0 group-hover:h-full transition-all duration-500 z-0 opacity-100"
+                    className="absolute left-5.75 top-12 w-0.5 h-0 group-hover:h-full transition-all duration-500 z-0 opacity-100"
                     style={{ backgroundColor: brandBlue }}
                   ></div>
                 </div>
 
                 {/* Content Section */}
-                <div className="pt-1 flex-grow border-b border-slate-100 pb-10 group-last:border-none">
+                <div className="pt-1 grow border-b border-slate-100 pb-10 group-last:border-none">
                   <div className="flex items-baseline gap-3 mb-3">
                     <span 
                       className="text-[13px] font-black tracking-widest opacity-40 uppercase" 
