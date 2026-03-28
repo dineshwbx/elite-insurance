@@ -56,7 +56,11 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-24 bg-slate-50 overflow-hidden" style={arialFont}>
+    <section 
+      id="insurance-section" 
+      className="py-24 bg-slate-50 overflow-hidden" 
+      style={arialFont}
+    >
       <div className="max-w-[1280px] mx-auto px-6">
         
         {/* Updated Specialist Header */}

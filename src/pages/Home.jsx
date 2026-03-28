@@ -1,5 +1,3 @@
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import About from '../components/About'; 
 import Services from '../components/Services';
@@ -10,7 +8,6 @@ import FeatureCard from '../components/FeatureCard';
 
 const Home = () => (
   <div className="bg-slate-50 min-h-screen">
-    <Navbar />
     <main>
       <Hero />
       <About /> 
@@ -20,7 +17,6 @@ const Home = () => (
       <WhyChooseUs />
       <Process />
     </main>
-    <Footer />
   </div>
 );
 

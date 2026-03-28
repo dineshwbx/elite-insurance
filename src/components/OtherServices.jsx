@@ -30,7 +30,8 @@ const OtherServices = () => {
 
   return (
     <section 
-      id="other-services" 
+      // Idhu dhaan Navbar link oda match aaganum
+      id="otherservice-section" 
       className="py-12 md:py-24 bg-slate-50 overflow-hidden" 
       style={arialFont}
     >
@@ -59,10 +60,9 @@ const OtherServices = () => {
           {otherServices.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 1 }} // Force visibility
-              
-              // DESKTOP: Side slide allowed
-              // MOBILE: Only subtle scale and background change (No X-axis move)
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
               whileHover={{ 
                 x: typeof window !== 'undefined' && window.innerWidth > 768 ? 12 : 0, 
                 backgroundColor: "rgba(255,255,255,0.7)" 
@@ -71,27 +71,23 @@ const OtherServices = () => {
                 scale: 0.98, 
                 backgroundColor: "rgba(255,255,255,1)" 
               }}
-              
-              className="group relative border-b border-slate-200 py-7 md:py-12 flex flex-col md:flex-row md:items-center gap-4 md:gap-12 transition-all duration-300 cursor-pointer px-4 md:px-0"
+              className="group relative border-b border-slate-200 py-7 md:py-12 flex flex-col md:flex-row md:items-center gap-4 md:gap-12 transition-all duration-300 cursor-pointer px-4 md:px-0 outline-none"
             >
               {/* Left Accent Line */}
               <div 
-                className="absolute left-0 top-0 h-full w-0 group-hover:w-1.5 group-active:w-2 transition-all duration-300 "
+                className="absolute left-0 top-0 h-full w-0 group-hover:w-1.5 group-active:w-2 transition-all duration-300"
                 style={{ backgroundColor: brandBlue }}
               ></div>
 
               <div className="flex items-center justify-between w-full md:w-auto">
-                {/* Icon */}
                 <div className="shrink-0 transition-transform duration-500 group-hover:scale-110 ml-5" style={{ color: brandBlue }}>
                   {service.icon}
                 </div>
-                {/* Mobile Arrow */}
                 <div className="md:hidden opacity-40 group-hover:opacity-100 transition-all" style={{ color: brandBlue }}>
                   <ArrowUpRight size={20} className="group-hover:rotate-45 transition-transform" />
                 </div>
               </div>
 
-              {/* TEXT CONTENT */}
               <div className="flex-grow">
                 <h3 className="text-[19px] md:text-[32px] font-black tracking-tight uppercase italic text-slate-900 group-hover:text-[#0091d1] transition-colors duration-300">
                   {service.title}
@@ -101,7 +97,6 @@ const OtherServices = () => {
                 </p>
               </div>
 
-              {/* Desktop Arrow */}
               <div className="hidden md:flex w-12 h-12 rounded-full border border-slate-200 items-center justify-center transition-all duration-500 group-hover:border-[#0091d1] group-hover:text-[#0091d1] group-hover:rotate-45">
                 <ArrowUpRight size={24} strokeWidth={2.5} />
               </div>
@@ -113,4 +108,4 @@ const OtherServices = () => {
   );
 };
 
-export default OtherServices; 
+export default OtherServices;
