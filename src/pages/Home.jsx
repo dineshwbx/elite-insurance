@@ -7,7 +7,7 @@ import OtherServices from '../components/OtherServices';
 import FeatureCard from '../components/FeatureCard';
 
 const Home = () => (
-  <div className="bg-slate-50 min-h-screen">
+  <div className="bg-slate-50">
     <main>
       <Hero />
       <About /> 
