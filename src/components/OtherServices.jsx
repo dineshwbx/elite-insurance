@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer"; // Added this
 
 const OtherServices = () => {
   const brandBlue = "#0091d1";
@@ -14,12 +15,17 @@ const OtherServices = () => {
   const [activeCard, setActiveCard] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check window size safely for Live/Production
+  // Scroll detection for the whole section
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    handleResize(); // Initial check
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -43,11 +49,21 @@ const OtherServices = () => {
   ];
 
   return (
-    <section id="other-services" className="py-20 md:py-24 bg-slate-50 overflow-hidden" style={arialFont}>
+    <section 
+      ref={ref} // Attach the observer here
+      id="other-services" 
+      className="py-20 md:py-24 bg-slate-50 overflow-hidden" 
+      style={arialFont}
+    >
       <div className="max-w-[1100px] mx-auto px-6">
         
-        {/* HEADER */}
-        <div className="text-center mb-16">
+        {/* HEADER - Animates on scroll */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-2 h-2 rounded-full" style={{ backgroundColor: brandBlue }}></div>
             <span className="uppercase tracking-[0.3em] font-bold text-[10px] md:text-[12px]" style={{ color: brandBlue }}>
@@ -57,7 +73,7 @@ const OtherServices = () => {
           <h2 className="text-[28px] md:text-[52px] font-black text-slate-900 tracking-tighter uppercase italic leading-tight">
             Strategic <span style={{ color: brandBlue }}>Wealth</span> Management.
           </h2>
-        </div>
+        </motion.div>
 
         {/* FULL WIDTH LIST */}
         <div className="flex flex-col border-t border-slate-200">
@@ -65,9 +81,14 @@ const OtherServices = () => {
             const isActive = activeCard === index;
             
             return (
-              <div
+              <motion.div
                 key={index}
-                onClick={() => setIsMobile(prev => prev && setActiveCard(isActive ? null : index))}
+                // Row entrance animation on scroll
+                initial={{ opacity: 0, x: -20 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+
+                onClick={() => isMobile && setActiveCard(isActive ? null : index)}
                 onMouseEnter={() => !isMobile && setActiveCard(index)}
                 onMouseLeave={() => !isMobile && setActiveCard(null)}
                 className="group relative border-b border-slate-200 py-6 md:py-12 cursor-pointer transition-all duration-300"
@@ -81,11 +102,9 @@ const OtherServices = () => {
                 <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-12 relative z-10 px-2 md:px-6">
                   
                   <div className="flex items-center justify-between w-full md:w-auto">
-                    {/* Icon */}
                     <div className="shrink-0 transition-transform duration-500 group-hover:scale-110" style={{ color: brandBlue }}>
                       {service.icon}
                     </div>
-                    {/* Mobile Indicator */}
                     <div className={`md:hidden transition-transform duration-300 ${isActive ? 'rotate-45' : 'rotate-0'}`} style={{ color: brandBlue }}>
                       <ArrowUpRight size={20} />
                     </div>
@@ -97,7 +116,6 @@ const OtherServices = () => {
                       {service.title}
                     </h3>
                     
-                    {/* Description - Logic fixed for Mobile/Desktop */}
                     <AnimatePresence>
                       {isActive && (
                         <motion.div
@@ -115,13 +133,12 @@ const OtherServices = () => {
                     </AnimatePresence>
                   </div>
 
-                  {/* Desktop Arrow */}
                   <div className={`hidden md:flex w-12 h-12 rounded-full border items-center justify-center transition-all duration-500 
                     ${isActive ? 'border-[#0091d1] text-[#0091d1] rotate-45' : 'border-slate-200 text-slate-400'}`}>
                     <ArrowUpRight size={24} strokeWidth={2.5} />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
