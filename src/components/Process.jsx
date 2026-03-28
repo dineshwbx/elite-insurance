@@ -10,7 +10,7 @@ const Process = () => {
     {
       id: "01",
       title: "Plan Selection",
-      desc: "We compare plans from all top companies to find the most flexible and best fit for your budget.",
+      desc: "We compare plans from all top companies to find the most flexible and best fit for you.",
       icon: <Ruler size={22} />,
     },
     {
