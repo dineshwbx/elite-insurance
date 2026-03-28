@@ -11,10 +11,10 @@ const OtherServices = () => {
   const brandBlue = "#0091d1";
   const arialFont = { fontFamily: "Arial, Helvetica, sans-serif" };
 
-  // Scroll Detection
+  // Trigger threshold-a 0.05-ku koraichutaen (Mobile-la seekram start aagum)
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.05, 
   });
 
   const otherServices = [
@@ -35,17 +35,17 @@ const OtherServices = () => {
     },
   ];
 
-  // POP Animation Variants
+
   const popRow = {
-    hidden: { opacity: 0, scale: 0.85, y: 20 },
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
     visible: (i) => ({
       opacity: 1,
-      scale: 1,
       y: 0,
+      scale: 1,
       transition: {
-        delay: i * 0.15,
-        duration: 0.6,
-        ease: [0.34, 1.56, 0.64, 1], // Intha bezier curve thaan "Pop" feel tharum
+        delay: i * 0.1,
+        duration: 0.5,
+        ease: "easeOut",
       },
     }),
   };
@@ -54,7 +54,7 @@ const OtherServices = () => {
     <section 
       ref={ref}
       id="other-services" 
-      className="py-20 md:py-24 bg-slate-50 overflow-hidden" 
+      className="py-16 md:py-24 bg-slate-50 overflow-hidden" 
       style={arialFont}
     >
       <div className="max-w-[1100px] mx-auto px-6">
@@ -62,22 +62,22 @@ const OtherServices = () => {
         {/* HEADER */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 md:mb-16"
         >
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-2 h-2 rounded-full" style={{ backgroundColor: brandBlue }}></div>
-            <span className="uppercase tracking-[0.3em] font-bold text-[10px] md:text-[12px]" style={{ color: brandBlue }}>
+            <span className="uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold text-[10px] md:text-[12px]" style={{ color: brandBlue }}>
               Extended Solutions
             </span>
           </div>
-          <h2 className="text-[28px] md:text-[52px] font-black text-slate-900 tracking-tighter uppercase italic leading-tight">
+          <h2 className="text-[26px] md:text-[52px] font-black text-slate-900 tracking-tighter uppercase italic leading-tight">
             Strategic <span style={{ color: brandBlue }}>Wealth</span> Management.
           </h2>
         </motion.div>
 
-        {/* FULL WIDTH LIST */}
+        {/* LIST CONTAINER */}
         <div className="flex flex-col border-t border-slate-200">
           {otherServices.map((service, index) => (
             <motion.div
@@ -86,38 +86,33 @@ const OtherServices = () => {
               variants={popRow}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
-              // Hover interaction preserved
-              whileHover={{ x: 5, transition: { duration: 0.2 } }}
+              // Mobile-la scale effect venaam, simple-ah irukkattum
+              whileHover={{ x: 8 }}
               className="group relative border-b border-slate-200 py-8 md:py-12 flex flex-col md:flex-row md:items-center gap-4 md:gap-12 transition-all duration-300"
             >
-              {/* Left Accent Line on Hover */}
               <div 
                 className="absolute left-0 top-0 h-full w-0 group-hover:w-1.5 transition-all duration-300"
                 style={{ backgroundColor: brandBlue }}
               ></div>
 
               <div className="flex items-center justify-between w-full md:w-auto px-2 md:px-6">
-                {/* Icon */}
                 <div className="shrink-0 transition-transform duration-500 group-hover:scale-110" style={{ color: brandBlue }}>
                   {service.icon}
                 </div>
-                {/* Mobile Arrow */}
                 <div className="md:hidden opacity-50" style={{ color: brandBlue }}>
                   <ArrowUpRight size={20} />
                 </div>
               </div>
 
-              {/* TEXT CONTENT */}
               <div className="flex-grow px-2 md:px-0">
-                <h3 className="text-[22px] md:text-[32px] font-black tracking-tight uppercase italic text-slate-900 group-hover:text-[#0091d1] transition-colors duration-300">
+                <h3 className="text-[20px] md:text-[32px] font-black tracking-tight uppercase italic text-slate-900 group-hover:text-[#0091d1] transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="mt-2 text-slate-500 text-[15px] md:text-[18px] font-medium max-w-2xl leading-relaxed">
+                <p className="mt-2 text-slate-500 text-[14px] md:text-[18px] font-medium max-w-2xl leading-relaxed">
                   {service.desc}
                 </p>
               </div>
 
-              {/* Desktop Arrow */}
               <div className="hidden md:flex w-12 h-12 rounded-full border border-slate-200 items-center justify-center transition-all duration-500 group-hover:border-[#0091d1] group-hover:text-[#0091d1] group-hover:rotate-45">
                 <ArrowUpRight size={24} strokeWidth={2.5} />
               </div>
